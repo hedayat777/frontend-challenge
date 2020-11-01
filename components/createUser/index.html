@@ -1,0 +1,101 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <title>Front end challenge</title>
+</head>
+<body>
+<div id="knockout-app" class="card">
+    <header>
+     Front end challenge
+    </header>
+    <!--START STEP 1 FOR GET NAME AND EMAIL-->
+    <div class="card-section" style="display:none;" data-bind="visible: startStep1()">
+        <h2>Create Account</h2>
+        <p>Enter your name and email address</p>
+        <form data-bind="submit: handleSubmitStep1">
+            <div class="field">
+                <label for="first-name">First Name*</label>
+                <input data-bind="value: firstName" id="first-name" type="text" placeholder="First Name"/>
+            </div>
+            <div class="field">
+                <label for="email">Email Address*</label>
+                <input data-bind="value: emailAddress" placeholder="You@mail.com" id="email" type="text"/>
+            </div>
+            <input type="submit" value="Continue">
+
+        </form>
+    </div>
+    <!--FINISH STEP 1 FOR GET NAME AND EMAIL-->
+    <!--START STEP 2 FOR GET NEWS AND AGE-->
+    <div class="card-section" style="display:none;" data-bind="visible: startStep2()">
+        <h2 data-bind="text: firstName"></h2>
+        <p data-bind="text: emailAddress"></p>
+        <form data-bind="submit: handleSubmitStep2">
+            <div class="field">
+                <label for="age">Age*</label>
+                <input data-bind="value: age" placeholder="your age" id="age" type="number"/>
+            </div>
+            <div class="field">
+                <label for="newsletter">Newsletter*</label>
+                <div class="select-container">
+                    <select id="newsletter" data-bind="value: newsletter">
+                        <option value="daily">daily</option>
+                        <option value="weekly">weekly</option>
+                        <option value="monthly">monthly</option>
+                    </select>
+                    <svg class="select_arrow" version="1.1" xmlns="http://www.w3.org/2000/svg" width="30"
+                         viewBox="0 0 768 768">
+                        <path fill="#222" d="M223.5 319.5h321l-160.5 160.5z"></path>
+                    </svg>
+                </div>
+            </div>
+            <button class="back" data-bind="click: handleBackStep1">Back</button>
+            <input type="submit" value="Continue">
+        </form>
+    </div>
+    <!--FINISH STEP 2 FOR GET NEWS AND AGE-->
+    <!--    START LAST STEP-->
+    <div class="card-section" style="display:none;" data-bind="visible: lastStep()">
+        <h2 data-bind="text: firstName"></h2>
+        <p data-bind="text: emailAddress"></p>
+        <p data-bind="text: age"></p>
+        <p data-bind="text: newsletter"></p>
+        <button class="back" data-bind="click: handleBackStep2">Back</button>
+        <button class="submit" data-bind="click: handleSendToApi">Create User</button>
+    </div>
+    <!--    FINISH LAST STEP-->
+    <footer>
+        <span>Have a nice day!</span>
+    </footer>
+    <div class="loading" data-bind="visible: loading()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="loading-svg" viewBox="0 0 120 30">
+            <circle cx="15" cy="15" r="15">
+                <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite" />
+                <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite" />
+            </circle>
+            <circle cx="60" cy="15" r="9" fill-opacity="0.3">
+                <animate attributeName="r" from="9" to="9" begin="0s" dur="0.8s" values="9;15;9" calcMode="linear" repeatCount="indefinite" />
+                <animate attributeName="fill-opacity" from="0.5" to="0.5" begin="0s" dur="0.8s" values=".5;1;.5" calcMode="linear" repeatCount="indefinite" />
+            </circle>
+            <circle cx="105" cy="15" r="15">
+                <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite" />
+                <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="0.8s" values="1;.5;1" calcMode="linear" repeatCount="indefinite" />
+            </circle>
+        </svg>
+    </div>
+</div>
+<script type="text/javascript" src="../../helpers/storageNames.js"></script>
+<script type="text/javascript" src="../../sdk/index.js"></script>
+<script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
+<script type="application/json"
+        src='https://raw.githubusercontent.com/quirkey/sammy/master/lib/min/sammy-latest.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.4/knockout.validation.min.js"
+        integrity="sha512-b99MDNv5TqiZtPKH2UeHzDAVydmgrOJEPtaPPEF8AgV86eYyqINFI/K7/7f0+R4WNTAVv8KvvpjwfOYHv5rd5g=="
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="./index.js"></script>
+</body>
+</html>
