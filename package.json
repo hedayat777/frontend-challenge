@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sheypoor/frontend-challenge#readme",
   "dependencies": {
+    "knockout": "^3.5.1",
     "sdk": "file:sdk"
   }
 }
